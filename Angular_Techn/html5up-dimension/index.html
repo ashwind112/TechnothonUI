@@ -26,8 +26,8 @@
 						</div>
 						<div class="content">
 							<div class="inner">
-								<div class="medblocks"><h1><strong><font color="black">MedBlocks</font></strong></h1></div>
-								<p> <font size="3" color = "red">Welcome to the next generation of hastle free maintainance of medical history using Blockchain </font><br /> 
+								<div class="medblocks"><h1><strong>MedBlocks</strong></h1></div>
+								<p> Welcome to the next generation of hastle free maintainance of medical history using Blockchain<br /> 
 								</p>
 							</div>
 						</div>
@@ -59,11 +59,6 @@
 								<input type="Password" id="pass" required="required" placeholder="Password" />
 								<br/>
 								<input type="submit" id= "login" value="Sign In"/><br/><br/>
-								<script>
-								$(document).ready(function(){
-									
-								});
-								</script>
 								<p id="message">New User? <a href="#register">Sign Up</a></p>
 								</form>
 							</article>
@@ -99,13 +94,14 @@
 								 <script>
 									$(document).ready(function() 
 									{
+										$('legend').siblings().slideUp();
 										$(" legend").click(function()
 										{
 											$(this).siblings().slideToggle();
 											
 											
 										});
-										$("fieldset").onblur(function()
+										$("legend").siblings().onblur(function()
 										{
 											//$(this).css("background","black")
 											$(this).siblings().slideToggle();

@@ -120,7 +120,7 @@
 		}
 
 	body, input, select, textarea {
-		color: #ffffff;
+		color: rgba(0,0,0,0.5);
 		font-family: "Source Sans Pro", sans-serif;
 		font-weight: 300;
 		font-size: 1rem;
@@ -143,8 +143,11 @@
 		}
 
 	strong, b {
-		color: #ffffff;
+		background: linear-gradient(to right, #ff3300 24%, #cc0066 99%);
+					  -webkit-background-clip: text;
+					  -webkit-text-fill-color: transparent;
 		font-weight: 600;
+		font-size:6rem;
 	}
 
 	em, i {
@@ -612,6 +615,8 @@
 /* Icon */
 
 	.icon {
+		color:white;
+		font-size: 2.5rem;
 		text-decoration: none;
 		border-bottom: none;
 		position: relative;
@@ -1105,7 +1110,7 @@
 			height: 100%;
 		}
 
-		 /*#bg:before {
+		 #bg:before {
 			background:url("../../images/block_green.jpg") no-repeat center center fixed;
 			-moz-transition: background-color 2.5s ease-in-out;
 			-webkit-transition: background-color 2.5s ease-in-out;
@@ -1115,12 +1120,12 @@
 			-webkit-transition-delay: 0.75s;
 			-ms-transition-delay: 0.75s;
 			transition-delay: 0.75s;
-			background-image: linear-gradient(to top, rgba(19, 21, 25, 0.5), rgba(19, 21, 25, 0.5)), url("../../images/overlay.jpg");
+			background-image: linear-gradient(to right, rgba(119, 122, 122, 0.1), rgba(19, 21, 25, 0.5)), url("../../images/overlay.jpg");
 			background-size: cover;
 			background-position: center, center;
 			background-repeat: no-repeat;
 			z-index: 2;
-		} */
+		} 
 
 		   #bg:after {
 			-moz-transform: scale(1.125);
@@ -1327,9 +1332,9 @@
 			}
 
 				#header .content .inner > :last-child {
-					color:black;
-					font-weight:bold;
-					margin-bottom: 0;
+					color:#ffffff;
+					font-weight:900;
+					font-size: 18px;
 				}
 
 			#header .content p {
@@ -1363,14 +1368,15 @@
 			}
 
 				#header nav ul li:first-child {
-					color:black;
-				font-weight:bold;
+					color:white;
+				font-weight:xx-large;
 					border-left: 0;
+					font-size: 6px;
 				}
 
 				#header nav ul li a {
-					color:black;
-				font-weight:bold;
+					color:white;
+				font-weight:900;
 					display: block;
 					min-width: 7.5rem;
 					height: 2.75rem;
@@ -1378,7 +1384,7 @@
 					padding: 0 1.25rem 0 1.45rem;
 					text-transform: uppercase;
 					letter-spacing: 0.2rem;
-					font-size: 0.8rem;
+					font-size: 1rem;
 					border-bottom: 0;
 				}
 
@@ -1464,9 +1470,9 @@
 			}
 
 				#header .logo .icon:before {
-					color:black;
+					color:white;
 					font-weight:bold;
-					font-size: 1.75rem;
+					font-size: 2.5rem;
 				}
 
 			#header .content .inner {
