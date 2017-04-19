@@ -53,7 +53,7 @@
 							</article>
 
 						<!-- Work -->
-							<article id="work"><form method="post" action="">
+							<article id="work"><form method="GET" action="">
 								<h2 class="major">Login</h2>
 								<input type="text" id="username" required="required" placeholder="Username"/><br/>
 								<input type="Password" id="pass" required="required" placeholder="Password" />
@@ -75,12 +75,25 @@
 								<br/>
 								<fieldset id="f2" >
 								<legend>Lab details</legend>
-									<label for="lab_name"> Name of lab:</label> <input type="text" id="lab_name" required><br>
-									<label for="type"> Report type: </label><input type="text" id="type" required><br>
-									<label for="date"> Date: </label><input type="text" id="date" required><br>
-									<label for="imp"> Impressions:</label><input type="text" id="imp" required><br>
-									<label for="findings">Findings:</label><input type="text" id="findings" required>
-									</fieldset>
+								<label for="type"> Report type: </label>
+
+								<select id="report-type">
+								    <option value="diabetes" myTag="diabetes">Diabetes
+								    </option>
+								    <option value="kidney" myTag="kidney">Kidney Stones
+								    </option>
+								</select>
+
+								<input type="hidden" id="setMyTag" />
+
+	    
+									
+									
+									
+									
+									
+								</fieldset>
+
 								<br/>
 								<fieldset id="f3">
 								<legend>Prescription details</legend>

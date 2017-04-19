@@ -405,7 +405,7 @@
 		background: transparent;
 		border-radius: 4px;
 		border: solid 1px #ffffff;
-		color: inherit;
+		color: rgba(255,255,255,1);
 		display: block;
 		outline: 0;
 		padding: 0 1rem;
