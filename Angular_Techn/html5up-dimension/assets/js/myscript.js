@@ -1,50 +1,63 @@
-(function($) {
-	function User(){
-		this.username="";
-		this.password="";
-	}
+(function($) {	
+
 	
+	
+
 	$("#login").click(function(){
 
-										var user= new User();
+		if(true || $("#username")=="user1" && $("#pass")=="password"){
+		   var name = $("#username").val();
+		   var role=$('#role').val();
+		   localStorage.setItem('username',name);
+		   localStorage.setItem('role',role);
+		   window.location.replace("#details");
+		}
+	});
+	
+	$("#reporttype1").change(function() {
 
-										var user=$("#username").val();
-										var pass=$("#pass").val();
-										user.username=user;
-										user.password=pass;
-										$.ajax({
-										    url: "https://localhost:3000/checkUser",
-										    type: 'POST',
-										    content-type:'application/json',
-										    data: JSON.stringify(user),
-										    success: function(data){
-										    		
-										      if(data=="true"){
-										      	window.location.replace("#details");
-										      }
-										    },
-										});
-									});
+	 	$("#kidney").show();
+	 	$("#diabetes").show();
+	 
+	 	var selection=($(this)).val();		
+	 	switch(selection){
+	 		case "kidney":
+	 		$("#kidney").slideDown();
+	 		$("#diabetes").slideUp();
+	 			
+					   //$("#kidney").toggle();
+					
+	 			//$("#kidney").show('slow/400/fast', function() {
+	 				
+	 			//});
+	 			//$("#diabetes").css('display', 'none');
+	 			
+	 			break;
+	 		case "diabetes":
+
+	 			$("#diabetes").slideDown();
+	 			//$("#kidney").css('display', 'none');
+	 			$("#kidney").slideUp();
+	 			break;
+	 		case "base":
+	 			$("#kidney").slideUp();
+	 			$("#diabetes").slideUp();
+	 			break;
+	 	}
+	 });
+	$("#Signup").click(function(){
+		window.location.replace("#work");
+	});
+
+	
 
 	 $("#logout").click(function(){
-									 window.location.replace("#work");	
-									 });
-									 
-	$("#username").onchange(function(){
-										//would also be using some onblur method in it.
-									});
+	 	window.location.replace("#work");
+	  });
 
-	
-    $("#report-type").change(function(){ 
-        var element = $(this).find('option:selected'); 
-        var myTag = element.attr("myTag"); 
 
-        $('#setMyTag').val(myTag); 
-    }); 
-
-});
-	
-	})(jQuery);
+	 
+})(jQuery);
 	
 	
 	

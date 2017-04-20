@@ -9,9 +9,13 @@
 
 /* Reset */
 
+
+
+
+
 	html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
 		margin: 0;
-		padding: 0;
+		padding: 4;
 		border: 0;
 		font-size: 100%;
 		font: inherit;
@@ -39,15 +43,16 @@
 		content: none;
 	}
 
-	table {
-		border-collapse: collapse;
-		border-spacing: 0;
-	}
+
 
 	body {
 		-webkit-text-size-adjust: none;
 	}
 
+	table {
+		border-collapse: collapse;
+		border-spacing: 0;
+	}
 /* Box Model */
 
 	*, *:before, *:after {
@@ -134,7 +139,7 @@
 		transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
 		
 		text-decoration: none;
-		color: inherit;
+		color: white;
 	}
 
 		a:hover {
@@ -143,11 +148,13 @@
 		}
 
 	strong, b {
-		background: linear-gradient(to right, #ff3300 24%, #cc0066 99%);
+		/*background: linear-gradient(to right, #ff3300 24%, #cc0066 99%);*/
+
+		background : linear-gradient(to right, #f5f5f5 24%, #f5f5f5 99%);
 					  -webkit-background-clip: text;
 					  -webkit-text-fill-color: transparent;
 		font-weight: 600;
-		font-size:6rem;
+		font-size:4rem;
 	}
 
 	em, i {
@@ -155,6 +162,7 @@
 	}
 
 	p {
+		color:white;
 		margin: 0 0 2rem 0;
 	}
 
@@ -180,6 +188,7 @@
 			width: max-content;
 			padding-bottom: 0.5rem;
 			margin: 0 0 2rem 0;
+			
 		}
 
 	h1 {
@@ -189,6 +198,8 @@
 	}
 
 	h2 {
+
+		margin-left: 3px;
 		font-size: 1.5rem;
 		line-height: 1.4;
 		letter-spacing: 0.5rem;
@@ -303,6 +314,7 @@
 		
 	}
 	legend{
+		text-align: center;
 		color: white;
 		font-weight:bold;
 		font-size:1.5em;
@@ -915,7 +927,7 @@
 
 /* Table */
 
-	.table-wrapper {
+	/* .table-wrapper {
 		-webkit-overflow-scrolling: touch;
 		overflow-x: auto;
 	}
@@ -929,14 +941,15 @@
 			border: solid 1px #ffffff;
 			border-left: 0;
 			border-right: 0;
+			color: white;
 		}
 
-			table tbody tr:nth-child(2n + 1) {
+			table tbody tr {
 				background-color: rgba(255, 255, 255, 0.075);
 			}
 
 		table td {
-			padding: 0.75em 0.75em;
+			padding: 0.4em 0.4em;
 		}
 
 		table th {
@@ -944,7 +957,7 @@
 			font-size: 0.9em;
 			font-weight: 600;
 			padding: 0 0.75em 0.75em 0.75em;
-			text-align: left;
+			text-align: center;
 		}
 
 		table thead {
@@ -981,6 +994,18 @@
 				border-top: 0;
 			}
 
+
+*/
+.table1{
+	text-align: center;
+	color :white;
+	background: rgba(0,0,0,0);
+}
+th{
+	font-weight: bold;
+	background: rgba(255,255,255,0.3);
+	text-align: center;
+}
 /* Button */
 
 	input[type="submit"],
@@ -1287,7 +1312,7 @@
 
 		#header .logo {
 			font-weight:bold;
-			color:black;
+			color:white;
 			width: 5.5rem;
 			height: 5.5rem;
 			line-height: 5.5rem;
@@ -1296,9 +1321,9 @@
 		}
 
 			#header .logo .icon:before {
-				color:black;
+				color:white;
 				font-weight:bold;
-				font-size: 2rem;
+				font-size: 4rem;
 			}
 
 		#header .content {
@@ -1578,7 +1603,7 @@
 			transition: opacity 0.325s ease-in-out, transform 0.325s ease-in-out;
 			padding: 4.5rem 2.5rem 1.5rem 2.5rem ;
 			position: relative;
-			width: 40rem;
+			width: 50rem;
 			max-width: 100%;
 			background-color: rgba(27, 31, 34, 0.85);
 			border-radius: 4px;

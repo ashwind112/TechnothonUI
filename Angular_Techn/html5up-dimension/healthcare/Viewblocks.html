@@ -1,0 +1,206 @@
+<html>
+<head>
+	<title>View Blocks</title>
+	<style type="text/css">
+		body{
+			background-image: url("bgimg4.jpg") ;
+			background-repeat: no-repeat;
+			background-position: center center;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+			background-attachment: fixed;
+
+		}
+		img{
+			border:2px solid black;
+			height:100px;
+			width:100px;
+			opacity: 0.7;
+
+		}
+		.block{
+			border:2px solid black;
+			height:100px;
+			width:100px;
+
+		}
+		#div2{
+			margin-top: 2%;
+			margin-left: 5%;
+		}
+		
+		#div3{
+			height: 510px;
+			width: 500px;
+			margin-left: 30%;
+			background-color: white;
+			opacity: 0.7;
+		}
+		#ok{
+			margin-left: 70%;
+		}
+		#num{
+			margin-left: 5%;
+			width: 80%;
+			height: 30px
+		}
+	</style>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<!-- <script type="text/javascript" src="viewblock.js"></script> -->
+	<script >
+		$(document).ready(function()
+		{
+			var height=0;
+			$.ajax({url: "https://e46a2faf4c644f30b81f4425cca07ea8-vp0.us.blockchain.ibm.com:5001/chain", success: function(result) 
+			{
+				$("#div1").append("Current Block Height: "+result.height);
+				$("#div1").css({"font-weight": "bold","font-size": "30","margin-left": "35%","color": "aqua","margin-top":"2%"});
+				height=Number(result.height);
+				var nums="";
+				for(var j=1;j<11;j++)
+				{
+					nums=nums+(height-11+j)+"&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp"
+				}
+				$("#num p").html(nums).css({"font-weight": "bold","font-size": "30","color":"aqua","margin-top":"-0.5%","z-index":"-1"});
+			}
+	    	});
+
+			$("img").click(function()
+			{
+				var id = Number($(this).attr('id'));
+				$("#ok").show();
+				$("#div3").css("border","2px solid black").show();
+				//$("#div3").append(Number(id));
+				$.ajax({url: "https://e46a2faf4c644f30b81f4425cca07ea8-vp0.us.blockchain.ibm.com:5001/chain/blocks/"+(height-11+id), success: function(result1)
+				 {
+
+		        		
+		        		var py=window.atob(result1.transactions[0].payload);
+		        		data =py.split("\n");
+		        		var fn="";
+						var gd="";
+						var lab="";
+						var pres="";
+						var vacc="";
+						var tr="";
+		        		/*for(var i=3;i<data.length;i++)
+		        		{
+		        			fn+=data[i].slice(1,data[i].length)+"<br/>";
+		        		
+		        		}
+						$("#div3 ").html("<p>"+fn+"</p>");
+		        		$("#div 3 ").css({"font-weight": "bold","font-size": "18","margin-top":"5%","margin-left":"5%","margin-right":"5%"});*/
+						 tr=data[3].slice(1,data[3].length);
+						if(tr.includes("init"))
+						{
+							$("#div3 fieldset").html(" ").hide();
+							for(var i=3;i<data.length;i++)
+							{
+								fn+=data[i].slice(1,data[i].length)+"<br/>";
+							
+							}
+							$("#div3 #init").html(fn);
+							$("#div3 #init").css({"font-weight": "bold","font-size": "20","margin-top":"5%","margin-left":"5%","margin-right":"5%"});
+								
+						}
+						else
+						{
+							$("#div3 #init").html(" ");
+							fn=fn+"Name: "+data[4].slice(1,data[4].length)+"&nbsp &nbsp";
+							fn=fn+"Date Of Birth: "+data[7].slice(0,data[7].length)+"<br/>";
+							
+							$("#div3 #header").html(fn);
+							$("#header ").css({"font-weight": "bold","font-size": "18","margin-top":"5%","margin-left":"5%","margin-right":"5%"});
+							gd=gd+"<legend align='center'>General Details:</legend>";
+							gd=gd+"Description of Current Ailment: "+data[5].slice(1,data[5].length)+"<br/>";
+							gd=gd+"Gender: "+data[8].slice(1,data[8].length)+"<br/>";
+							$("#div3 #gendetails").html(gd);
+							$("#div3 #gendetails ").css({"font-weight": "bold","font-size": "15","margin-top":"5%","margin-left":"5%","margin-right":"5%"});
+							
+							lab=lab+"<legend align='center'>Lab Details:</legend>";
+							lab=lab+"Report Type: "+data[8].slice(1,data[8].length)+"<br/>";
+							var type=(data[9].slice(0,data[9].length));
+							console.log(type);
+							if(type.includes("diabetes"))
+							{
+								lab=lab+"PreLunch: "+data[10].slice(1,data[10].length)+"<br/>";
+								lab=lab+"PostLunch: "+data[11].slice(1,data[11].length)+"<br/>";
+							}
+							else  
+							{
+								lab=lab+"Minsize: "+data[10].slice(1,data[10].length)+"<br/>";
+								lab=lab+"Maxsize: "+data[11].slice(1,data[11].length)+"<br/>";
+							}
+							$("#div3 #Labdetails").html(lab);
+							$("#div3 #Labdetails ").css({"font-weight": "bold","font-size": "15","margin-top":"5%","margin-left":"5%","margin-right":"5%"});
+							pres=pres+"<legend align='center'>Prescription Details:</legend>";
+							pres=pres+"Disease: "+data[12].slice(1,data[12].length)+"<br/>";
+							pres=pres+"Ongoing Medication:  "+data[13].slice(1,data[13].length)+"<br/>";
+							pres=pres+"Duration: "+data[14].slice(1,data[14].length)+"<br/>";
+							$("#div3 #Presdetails").html(pres);
+							$("#div3 #Presdetails ").css({"font-weight": "bold","font-size": "15","margin-top":"5%","margin-left":"5%","margin-right":"5%"});
+							vacc=vacc+"<legend align='center'>Vaccination Details:</legend>";
+							vacc=vacc+"Titanus: "+data[16].slice(0,data[16].length)+"<br/>";
+							vacc=vacc+"Hepatitis A :  "+data[18].slice(0,data[18].length)+"<br/>";
+							vacc=vacc+"Hepatitis B : "+data[20].slice(0,data[20].length)+"<br/>";
+							$("#div3 #Vaccination").html(vacc);
+							$("#div3 #Vaccination ").css({"font-weight": "bold","font-size": "15","margin-top":"5%","margin-left":"5%","margin-right":"5%"});	
+							$("#div3 fieldset").show();
+						
+						}
+						
+		        		//console.log(window.atob(result1.transactions[0].payload));
+		        		//console.log((result1.transactions[0].payload));
+		        		//console.log(result1.stateHash);
+						
+		         }
+		        });
+
+			});
+
+			$("#ok").click(function()
+			{
+				$("#div3").hide();
+				$(this).hide();
+			});
+
+		});
+	</script>
+</head>
+<body>
+<div id="d0">
+	<div id="div1"></div>
+	<div id="div2">
+
+	    <img src="block3.jpg" id="1" />&nbsp &nbsp
+		<img src="block3.jpg" id="2" />&nbsp &nbsp
+		<img src="block3.jpg" id="3" />&nbsp &nbsp
+		<img src="block3.jpg" id="4" />&nbsp &nbsp
+		<img src="block3.jpg" id="5" />&nbsp &nbsp
+		<img src="block3.jpg" id="6" />&nbsp &nbsp
+		<img src="block3.jpg" id="7" />&nbsp &nbsp
+		<img src="block3.jpg" id="8" />&nbsp &nbsp
+		<img src="block3.jpg" id="9" />&nbsp &nbsp
+		<img src="block3.jpg" id="10" />&nbsp &nbsp 
+		<button id="grantAccess">Grant access</button>
+		<div id="num"><p></p></div>
+
+
+	</div>
+	<div id="div3" style="display: none">
+	<p id="init"></p>
+	<fieldset id="header" style="inherit"></fieldset>
+	<fieldset id="gendetails" style="inherit"></fieldset>
+	<fieldset id="Labdetails" style="inherit"></fieldset>
+	<fieldset id="Presdetails" style="inherit"></fieldset>
+	<fieldset id="vaccination" style="inherit"></fieldset>
+			
+	</div>
+	<button id="ok" style="display: none" >OK</button>
+	
+</div>
+</body>
+</html>

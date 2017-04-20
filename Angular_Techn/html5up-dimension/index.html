@@ -8,21 +8,36 @@
 	<head>
 		<title>MedBlocks</title>
 		<meta charset="utf-8" />
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<script src="http://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 		<link rel="stylesheet" href="assets/css/main.css" />
+		
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+
+
+		
+		
+
+
+
+
+		 
+
+</script>
 	</head>
 	<body>
 
 		<!-- Wrapper -->
 			<div id="wrapper">
 
-				<!-- Header fa-btc (blockchain daalna hoga toh)-->
+				<!-- Header fa-btc (blockchain daalna hoga toh)else fa-heartbeat-->
 					<header id="header">
 						<div class="logo">
-							<span class="icon fa-heartbeat"></span> 
+							<span class="icon fa-btc"></span> 
+							 
 						</div>
 						<div class="content">
 							<div class="inner">
@@ -33,7 +48,7 @@
 						</div>
 						<nav>
 							<ul>
-								<li><a href="#intro">View</a></li>
+								<li><a href="healthcare/viewblocks.html">View</a></li>
 								<li><a href="#work">Login</a></li>
 								<li><a href="#contact">Contact</a></li>
 								<!--<li><a href="#elements">Elements</a></li>-->
@@ -58,74 +73,223 @@
 								<input type="text" id="username" required="required" placeholder="Username"/><br/>
 								<input type="Password" id="pass" required="required" placeholder="Password" />
 								<br/>
+								<select id="role">
+									<option selected value="base">Select User Type</option>
+								    <option value="patient" >Patient
+								    </option>
+								    <option value="provider">Provider
+								    </option>
+								</select>
+								<br/>
 								<input type="submit" id= "login" value="Sign In"/><br/><br/>
 								<p id="message">New User? <a href="#register">Sign Up</a></p>
 								</form>
 							</article>
 							
 						<!-- Enter Details -->	
-							<article id="details"><form method="post" action="">
-								
+							<article id="details"><form>
+								<div class="row">
 								<h2 class="major">Enter Details</h2>
-								<fieldset id="f1">
+								
+								<fieldset id="f1" >
 								<legend >General Details</legend>
-									<label for="name"> Name: </label><input type="text" id="name" required><br>
-									<label for="ailment"> Description of current ailment: </label><input type="text" id="ailment" required><br>
-									<label for="dob"> Date of birth: </label><input type="text" id="dob" required></fieldset>
-								<br/>
+									<br/>
+									<div class="form-group row">
+								      <label for="name" class="col-sm-2 col-form-label">Name:</label>
+								      <div class="col-sm-10">
+								        <input type="text" class="form-control" id="name">
+								      </div>
+								    </div>
+									<br>
+									<div class="form-group row">
+								      <label for="ailment" class="col-sm-2 col-form-label">Current Ailment:</label>
+								      <div class="col-sm-10">
+								        <input type="text" class="form-control" id="ailment">
+								      </div>
+								    </div>
+									<br>
+									<div class="form-group row">
+								      <label for="ailment" class="col-sm-2 col-form-label">Date Of Birth:</label>
+								      <div class="col-sm-10">
+								        <input type="date" class="form-control" id="dob" required>
+								      </div>
+								    </div>
+									
+									<div class="form-group row">
+								      <label for="gender" class="col-sm-2 col-form-label">Gender:</label>
+								      <div class="col-sm-10">
+								        <select id="gender">
+											<option selected value="base">Select Gender</option>
+										    <option value="male" >Male
+										    </option>
+										    <option value="female">Female
+										    </option>
+										</select>
+								      </div>
+								    </div>
+									<br>
+
+
+									</fieldset>
+									</div>
+									
+								
+								<div class="row">
 								<fieldset id="f2" >
 								<legend>Lab details</legend>
-								<label for="type"> Report type: </label>
+								<br/>
+								<div class="form-group row">
+								      <label for="type" class="col-sm-2 col-form-label">Report Type:</label>
+								      <div class="col-sm-10">
+								        <select id="reporttype1">
+											<option selected value="base">Please Select</option>
+										    <option value="diabetes" >Diabetes
+										    </option>
+										    <option value="kidney">Kidney Stones
+										    </option>
+										</select>
+								      </div>
+								    </div>
+									
+								
 
-								<select id="report-type">
-								    <option value="diabetes" myTag="diabetes">Diabetes
-								    </option>
-								    <option value="kidney" myTag="kidney">Kidney Stones
-								    </option>
-								</select>
+								
 
-								<input type="hidden" id="setMyTag" />
+									<div id="diabetes" >
+										<br/>
+										<div class="form-group row">
+									      <label for="prelunch" class="col-sm-2 col-form-label">Pre-Lunch:</label>
+									      <div class="col-sm-10">
+									        <input type="text" class="form-control" id="pre" required>
+									      </div>
+									    </div>
+										<br/>
+										<div class="form-group row">
+									      <label for="postlunch" class="col-sm-2 col-form-label">Post-Lunch:</label>
+									      <div class="col-sm-10">
+									        <input type="text" class="form-control" id="post" required>
+									      </div>
+									    </div>
+										<br/>
+									</div>
 
-	    
-									
-									
-									
-									
+									<div id="kidney" >
+										<br/>
+										<div class="form-group row">
+									      <label for="minsize" class="col-sm-2 col-form-label">Min-Size:</label>
+									      <div class="col-sm-10">
+									        <input type="text" class="form-control" id="min_size" required>
+									      </div>
+									    </div>
+										<br/>
+										
+										<div class="form-group row">
+									      <label for="maxsize" class="col-sm-2 col-form-label">Max-Size:</label>
+									      <div class="col-sm-10">
+									        <input type="text" class="form-control" id="max_size" required>
+									      </div>
+									    </div>
+										<br/>
+										
+									</div>
+	
 									
 								</fieldset>
+								</div>
+								
 
+								
+								<div class="row">
+								<fieldset id="f3" >
+									<legend>Prescription details</legend>
+									<br/>
+									<div class="form-group row">
+									      <label for="disease" class="col-sm-2 col-form-label">Disease:</label>
+									      <div class="col-sm-10">
+									        <input type="text" class="form-control" id="disease" required>
+									      </div>
+									    </div>
+										<br/>
+									<div class="form-group row">
+									      <label for="medication" class="col-sm-2 col-form-label">Medication:</label>
+									      <div class="col-sm-10">
+									        <input type="text" class="form-control" id="medication" required>
+									      </div>
+									    </div>
+										<br/>
+									<div class="form-group row">
+									      <label for="duration" class="col-sm-2 col-form-label">Duration:</label>
+									      <div class="col-sm-10">
+									        <input type="text" class="form-control" id="duration" required>
+									      </div>
+									    </div>
+										<br/>
+								</fieldset>	
+								</div>
+															
+								
+								<div class="row">
+								<fieldset id="f4" >
+								<legend>Vaccination History</legend>
 								<br/>
-								<fieldset id="f3">
-								<legend>Prescription details</legend>
-									<label for="disease">Disease: </label><input type="text" id="disease" required><br>
-									<label for="medication">Ongoing Medication:</label> <input type="text" id="medication" required><br>
-									<label for="duration">Duration:</label> <input type="text" id="duration" required><br>
-									<label for="description">Current problem description:</label><input type="text" id="description" required>
-									</fieldset>								
+								
+								<!--<label for="vaccine">Vaccine: </label><input type="text" id="vaccine" required>
+								<label for="date">Date: </label><input type="text" id="date" required>-->
+
+								<table class="table table-bordered table1">
+								 <tr>
+								    <h1><th >Vaccine</th><h1>
+								    <h1><th ">Date</th><h1>
+
+								  </tr>
+								  <tr>
+								    <td>Tetanus</td>
+								    <td><input type="date" id="v1" required></td>
+								    
+								  </tr>
+								  <tr>
+								   <td>Tetanus A</td>
+								    <td><input type="date" id="v2" required></td>
+								  </tr>
+								  <tr>
+								    <td>Tetanus B</td>
+								    <td><input type="date" id="v3" required></td>
+								  </tr>
+								  
+								</table>
+								</fieldset>
+								</div>
 								<br/>
-								<br/>
+
+								
+
+
 								 <script>
 									$(document).ready(function() 
 									{
 										$('legend').siblings().slideUp();
-										$(" legend").click(function()
+										$("legend").click(function()
 										{
+
 											$(this).siblings().slideToggle();
-											
+											$("#kidney").hide();
+	 										$("#diabetes").hide();
 											
 										});
-										$("legend").siblings().onblur(function()
-										{
-											//$(this).css("background","black")
-											$(this).siblings().slideToggle();
 										
-										});
 										
 									});
 								</script>
-								<div class="details_sub"><input type="submit"  value="Submit Details"/></div><br/>
+								
 								<br/>
-								<div class="logout"><button type="button" >Sign Out</button><br/>
+								<br/>
+
+								<div class="row">
+								<div class="details_sub"><input type="submit"  id="details_sub" value="Submit Details"/><br/>
+								<br/>
+								
+								<input type="button" id="logout" value="Sign Out"></div><br/>
+								
 								 <script>
 									$(document).ready(function() {
 										function disableback() { window.history.forward() }
@@ -135,16 +299,25 @@
 									});
 								</script> 
 								</form>
+								</div>
 							</article>
 							
 							<!--New user-->
 							
-							<article id="register"><form method="post" action="">
+							<article id="register"><form method="get" action="">
 								<h2 class="major">Register</h2>
-								<input type="text" id="username" required="required" placeholder="Username"/><br/>
-								
+								<select id="role">
+									<option selected value="base">Select User Type</option>
+								    <option value="patient" >Patient
+								    </option>
+								    <option value="hospital">Provider
+								    </option>
+								</select>
 								<br/>
+								<input type="text" id="username" required="required" placeholder="Username"/><br/>
+								<input type="Password" id="pwd" required="required" placeholder="Password"/><br/>
 								<input type="submit" id= "Signup" value="Register"/><br/><br/>
+
 								<p id="message">Already registered? <a href="#work">Sign In</a></p>
 					
 								</form>
@@ -441,9 +614,10 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 			<div id="bg"></div>
 
 		<!-- Scripts -->
+
 			<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 			<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
-			<script src="assets/js/jquery.min.js"></script>
+			<!-- <script src="assets/js/jquery.min.js"></script>			 -->
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
